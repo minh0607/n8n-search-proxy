@@ -45,7 +45,7 @@ Open in browser: `http://localhost:5100/docs` — interactive API documentation.
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/api/health` | Health check |
-| `POST` | `/api/search` | Web search (DuckDuckGo) |
+| `POST` | `/api/search` | Web search (Google) |
 | `POST` | `/api/news` | News search |
 | `POST` | `/api/fetch` | Fetch URL content (raw HTML or plain text) |
 | `POST` | `/api/crawl` | Crawl URL: extract text, links, images, metadata |
@@ -56,7 +56,7 @@ Open in browser: `http://localhost:5100/docs` — interactive API documentation.
 {
   "query": "ransomware prevention 2026",
   "max_results": 10,
-  "region": "wt-wt",
+  "language": "en",
   "time_range": "m"
 }
 ```
@@ -80,7 +80,8 @@ Open in browser: `http://localhost:5100/docs` — interactive API documentation.
 **Parameters:**
 - `query` (required) — Search keywords
 - `max_results` — Number of results (default: 10, max: ~30)
-- `region` — Region code: `wt-wt` (global), `vn-vi` (Vietnam), `us-en` (US), etc.
+- `language` — Language code: `en` (English), `vi` (Vietnamese), etc.
+- `country` — Country restriction: `countryVN`, `countryUS`, or empty for global
 - `time_range` — `d` (day), `w` (week), `m` (month), `y` (year), or `null` (all time)
 
 ### POST /api/news — News Search
@@ -251,7 +252,6 @@ nssm start n8n-search-proxy
 | `uvicorn` | ASGI server |
 | `requests` | HTTP client for fetching URLs |
 | `beautifulsoup4` | HTML parsing and text extraction |
-| `duckduckgo-search` | Web search (no API key needed) |
 | `pydantic` | Request/response validation |
 
 ## License
