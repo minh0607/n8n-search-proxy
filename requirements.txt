@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+requests
+beautifulsoup4
+duckduckgo-search
+pydantic
+urllib3
